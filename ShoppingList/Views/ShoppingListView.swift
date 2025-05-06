@@ -16,7 +16,7 @@ class ShoppingListViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        title = "Alışveriş Listesi"
+        title = "Shopping List"
         view.backgroundColor = .systemBackground
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -44,27 +44,27 @@ class ShoppingListViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func addButtonTapped() {
-        let alert = UIAlertController(title: "Yeni Ürün", message: "Alışveriş listenize eklemek istediğiniz ürünü girin", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Item", message: "Enter the item you want to add to your shopping list", preferredStyle: .alert)
         
         alert.addTextField { textField in
-            textField.placeholder = "Ürün adı"
+            textField.placeholder = "Item name"
         }
         
         alert.addTextField { textField in
-            textField.placeholder = "Ürün kategorisi (isteğe bağlı)"
+            textField.placeholder = "Item category (optional)"
         }
         
-        let saveAction = UIAlertAction(title: "Ekle", style: .default) { [weak self] _ in
+        let saveAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
             guard let itemName = alert.textFields?[0].text, !itemName.isEmpty else { return }
             let category = alert.textFields?[1].text
             
             let newItem = ShoppingItem(name: itemName, category: category, isChecked: false)
             self?.items.append(newItem)
             self?.tableView.reloadData()
-            // Burada Core Data'ya kaydetme işlemi yapılacak
+            // Save to Core Data here
         }
         
-        let cancelAction = UIAlertAction(title: "İptal", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
@@ -74,13 +74,13 @@ class ShoppingListViewController: UIViewController {
     
     // MARK: - Data Management
     private func loadItems() {
-        // Burada Core Data'dan veri çekme işlemi yapılacak
-        // Şimdilik örnek veriler
+        // Fetch from Core Data here
+        // Sample data for now
         items = [
-            ShoppingItem(name: "Ekmek", category: "Fırın", isChecked: false),
-            ShoppingItem(name: "Süt", category: "Süt Ürünleri", isChecked: false),
-            ShoppingItem(name: "Elma", category: "Meyve", isChecked: false),
-            ShoppingItem(name: "Domates", category: "Sebze", isChecked: false)
+            ShoppingItem(name: "Bread", category: "Bakery", isChecked: false),
+            ShoppingItem(name: "Milk", category: "Dairy", isChecked: false),
+            ShoppingItem(name: "Apple", category: "Fruit", isChecked: false),
+            ShoppingItem(name: "Tomato", category: "Vegetable", isChecked: false)
         ]
         tableView.reloadData()
     }
@@ -113,14 +113,14 @@ extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate
         tableView.deselectRow(at: indexPath, animated: true)
         items[indexPath.row].isChecked.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        // Burada Core Data güncelleme işlemi yapılacak
+        // Update Core Data here
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            // Burada Core Data silme işlemi yapılacak
+            // Delete from Core Data here
         }
     }
 } 

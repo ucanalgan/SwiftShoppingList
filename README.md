@@ -1,42 +1,42 @@
 # SwiftShoppingList
 
-Swift ile geliştirilmiş alışveriş listesi uygulaması. CoreData kullanarak veri saklama özellikli.
+A shopping list application developed with Swift. Features data persistence using CoreData.
 
-## Özellikler
+## Features
 
-- Ürün ekleme, düzenleme ve silme
-- Kategorilere göre sıralama
-- CoreData ile lokal depolama
-- Kullanıcı dostu arayüz
+- Add, edit and delete products
+- Sort by categories
+- Local storage with CoreData
+- User-friendly interface
 
-## Kurulum
+## Installation
 
-1. Repoyu klonlayın
+1. Clone the repository
 ```
 git clone https://github.com/ucanalgan/SwiftShoppingList.git
 ```
 
-2. Xcode ile açın
+2. Open with Xcode
 ```
 cd SwiftShoppingList
 open ShoppingList.xcodeproj
 ```
 
-3. Bir iOS simülatöründe veya gerçek cihazda çalıştırın
+3. Run on an iOS simulator or a real device
 
-## Katkıda Bulunma
+## Contributing
 
-1. Bu repoyu fork edin
-2. Kendi feature branch'inizi oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
-4. Branch'inize push edin (`git push origin feature/amazing-feature`)
-5. Pull Request açın
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Geliştiriciler
+## Developers
 
 - @ucanalgan
 - @bekiremree
 
-## Lisans
+## License
 
-Bu proje MIT Lisansı altında lisanslanmıştır - Detaylar için [LICENSE](LICENSE) dosyasına bakın. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
